@@ -30,8 +30,6 @@ module.exports = require('./webpack.base.babel')({
           mangle: true,
         },
         parallel: true,
-        // cache: true,
-        // sourceMap: true,
       }),
     ],
     nodeEnv: 'production',
