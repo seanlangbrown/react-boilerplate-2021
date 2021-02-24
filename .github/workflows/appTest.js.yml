@@ -27,23 +27,23 @@ jobs:
       run: npm run test
 
   # Comment on code lines where tests fail
-  # TestResultComments:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: mattallty/jest-github-action@v1
-  #     env:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #     with:
-  #       test-command: "npm run test"
-  #       coverage-comment: false
-  #       changes-only: true
-
-  TestCoverage:
+  TestResultComments:
     runs-on: ubuntu-latest
-    env:
-      CI_JOB_NUMBER: 1
     steps:
-    - uses: actions/checkout@v2
-    - uses: artiomtr/jest-coverage-report-action@v1.0
+    - uses: mattallty/jest-github-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        test-command: "npm run test"
+        coverage-comment: true
+        changes-only: true
+
+  # TestCoverage:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     CI_JOB_NUMBER: 1
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: artiomtr/jest-coverage-report-action@v1.0
+  #     with:
+  #       github_token: ${{ secrets.GITHUB_TOKEN }}
