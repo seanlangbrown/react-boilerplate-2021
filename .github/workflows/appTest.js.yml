@@ -26,17 +26,33 @@ jobs:
     - name: Test
       run: npm run test
 
-  # Comment on code lines where tests fail
-  TestResultComments:
+  Coverage:
     runs-on: ubuntu-latest
     steps:
-    - uses: mattallty/jest-github-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
       with:
-        test-command: "npm run test"
-        coverage-comment: true
-        changes-only: true
+        node-version: 12.x
+    - run: npm ci
+    - name: TestCoverage
+      id: testCovergae
+      uses: anuraag016/Jest-Coverage-Diff@master
+      with:
+        fullCoverageDiff: false
+        runCommand: "npm run test:coverage"
+
+  # # Comment on code lines where tests fail
+  # TestResultComments:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: mattallty/jest-github-action@v1
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     with:
+  #       test-command: "npm run test"
+  #       coverage-comment: true
+  #       changes-only: true
 
   # TestCoverage:
   #   runs-on: ubuntu-latest

@@ -38,9 +38,10 @@
     "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts --fix",
     "lint:js": "npm run lint:eslint -- . ",
     "lint:staged": "lint-staged",
-    "pretest": "npm run test:clean",
+    "pretest:coverage": "npm run test:clean",
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --silent --coverage --coverageReporters=\"json-summary\"",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "prettify": "prettier --write"
   },
