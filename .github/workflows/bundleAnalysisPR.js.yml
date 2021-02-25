@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: main-bundle
-        path: 'stats.js'
+        path: 'stats.json'
 
   CompareBundleSize:
     needs: [MainBundleSize]
