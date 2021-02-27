@@ -15,7 +15,7 @@
 # https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html
 #
 #  Actions:
-#  - Creates a bucket named $URL
+#  - Creates a bucket named $URL ($TYPE create-build) or removes all files from bucket ($TYPE clean-build)
 #  - Sets bucket policy to allow public access
 #  - uploads all files from ../build
 #  - configures s3 website
