@@ -6,8 +6,8 @@
 # 
 # TYPE options:
 # - create-deploy: creates and configures a new bucket
-# - upload-files: adds files, does not clean or re-configure
-# - clean-deploy: removes all files and re-configures
+# - clean-deploy: removes all files before uploading new files
+# - upload-files: adds files, does not clean existing files
 #
 # Requires aws cli v2 to be installed and configured with an active IAM role
 # https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
